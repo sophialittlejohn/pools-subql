@@ -13,7 +13,11 @@
     "interface-build": "yarn generate:defs && yarn generate:meta && yarn build",
     "lint": "eslint --max-warnings 0 'src/**/*.{ts,tsx,js,jsx}'",
     "lint:fix": "eslint --fix --max-warnings 0 'src/**/*.{ts,tsx,js,jsx}'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "docker:build:up": "docker compose --profile subql up --build",
+    "docker:up": "docker compose --profile subql up -d",
+    "docker:down": "docker compose --profile subql down -v",
+    "docker:logs": "docker compose --profile subql logs -f subql-node | grep -e ERROR -e \"Borrower transaction\""
   },
   "homepage": "https://github.com/centrifuge/pools-subql",
   "repository": "github:centrifuge/pools-subql",
